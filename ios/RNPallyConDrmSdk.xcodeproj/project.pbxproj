@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3E7B58A1CC2AC0600A0062D /* RNPallyConDrmSdkBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNPallyConDrmSdkBridge.m */; };
+		B40ECC5E2980990000FB354E /* RNPallyConDrmSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40ECC5D2980990000FB354E /* RNPallyConDrmSdk.swift */; };
+		B4E0AAD929D2BEAA00FEC09F /* PallyConSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AAD829D2BEAA00FEC09F /* PallyConSdk.swift */; };
+		B4E0AADE29D3BA2300FEC09F /* PallyConEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AADD29D3BA2300FEC09F /* PallyConEvent.swift */; };
+		B4E0AAE029D3BAD000FEC09F /* PallyConEventImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AADF29D3BAD000FEC09F /* PallyConEventImpl.swift */; };
+		B4E0AAE229D3C18000FEC09F /* DownloadProgressEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AAE129D3C18000FEC09F /* DownloadProgressEvent.swift */; };
+		B4E0AAE429D3C18900FEC09F /* DownloadProgressEventImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AAE329D3C18900FEC09F /* DownloadProgressEventImpl.swift */; };
+		B4E0AAE629D3CAC900FEC09F /* PallyConEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AAE529D3CAC900FEC09F /* PallyConEventType.swift */; };
+		B4E0AAE829D3CB2200FEC09F /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0AAE729D3CB2200FEC09F /* DownloadState.swift */; };
+		B4F31F4829873B6100A916D3 /* RNPallyConDrmSdkBridge.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3E7B5881CC2AC0600A0062D /* RNPallyConDrmSdkBridge.h */; };
+		B4F31F4C2987404B00A916D3 /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F31F4B2987404B00A916D3 /* EventEmitter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				B4F31F4829873B6100A916D3 /* RNPallyConDrmSdkBridge.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libRNPallyConDrmSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNPallyConDrmSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* RNPallyConDrmSdkBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNPallyConDrmSdkBridge.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* RNPallyConDrmSdkBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNPallyConDrmSdkBridge.m; sourceTree = "<group>"; };
+		B40ECC5C2980990000FB354E /* RNPallyConDrmSdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNPallyConDrmSdk-Bridging-Header.h"; sourceTree = "<group>"; };
+		B40ECC5D2980990000FB354E /* RNPallyConDrmSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNPallyConDrmSdk.swift; sourceTree = "<group>"; };
+		B4E0AAD829D2BEAA00FEC09F /* PallyConSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallyConSdk.swift; sourceTree = "<group>"; };
+		B4E0AADD29D3BA2300FEC09F /* PallyConEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallyConEvent.swift; sourceTree = "<group>"; };
+		B4E0AADF29D3BAD000FEC09F /* PallyConEventImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallyConEventImpl.swift; sourceTree = "<group>"; };
+		B4E0AAE129D3C18000FEC09F /* DownloadProgressEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressEvent.swift; sourceTree = "<group>"; };
+		B4E0AAE329D3C18900FEC09F /* DownloadProgressEventImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressEventImpl.swift; sourceTree = "<group>"; };
+		B4E0AAE529D3CAC900FEC09F /* PallyConEventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PallyConEventType.swift; sourceTree = "<group>"; };
+		B4E0AAE729D3CB2200FEC09F /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
+		B4F31F4B2987404B00A916D3 /* EventEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libRNPallyConDrmSdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				B4E0AADC29D3BA1300FEC09F /* event */,
+				B4E0AADA29D2BEFC00FEC09F /* models */,
+				B4E0AAD729D2BE9C00FEC09F /* sdk */,
+				B4F31F4A2987404200A916D3 /* Util */,
+				B40ECC5D2980990000FB354E /* RNPallyConDrmSdk.swift */,
+				B3E7B5881CC2AC0600A0062D /* RNPallyConDrmSdkBridge.h */,
+				B3E7B5891CC2AC0600A0062D /* RNPallyConDrmSdkBridge.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
+				B40ECC5C2980990000FB354E /* RNPallyConDrmSdk-Bridging-Header.h */,
+				B41F404429DA95DF00392AC2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B41F404429DA95DF00392AC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4E0AAD729D2BE9C00FEC09F /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				B4E0AAD829D2BEAA00FEC09F /* PallyConSdk.swift */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
+		B4E0AADA29D2BEFC00FEC09F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B4E0AAE529D3CAC900FEC09F /* PallyConEventType.swift */,
+				B4E0AAE729D3CB2200FEC09F /* DownloadState.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		B4E0AADC29D3BA1300FEC09F /* event */ = {
+			isa = PBXGroup;
+			children = (
+				B4E0AADD29D3BA2300FEC09F /* PallyConEvent.swift */,
+				B4E0AADF29D3BAD000FEC09F /* PallyConEventImpl.swift */,
+				B4E0AAE129D3C18000FEC09F /* DownloadProgressEvent.swift */,
+				B4E0AAE329D3C18900FEC09F /* DownloadProgressEventImpl.swift */,
+			);
+			path = event;
+			sourceTree = "<group>";
+		};
+		B4F31F4A2987404200A916D3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				B4F31F4B2987404B00A916D3 /* EventEmitter.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* RNPallyConDrmSdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNPallyConDrmSdk" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNPallyConDrmSdk;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libRNPallyConDrmSdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1420;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNPallyConDrmSdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* RNPallyConDrmSdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B40ECC5E2980990000FB354E /* RNPallyConDrmSdk.swift in Sources */,
+				B4E0AAD929D2BEAA00FEC09F /* PallyConSdk.swift in Sources */,
+				B4E0AADE29D3BA2300FEC09F /* PallyConEvent.swift in Sources */,
+				B4F31F4C2987404B00A916D3 /* EventEmitter.swift in Sources */,
+				B4E0AAE229D3C18000FEC09F /* DownloadProgressEvent.swift in Sources */,
+				B4E0AAE029D3BAD000FEC09F /* PallyConEventImpl.swift in Sources */,
+				B4E0AAE429D3C18900FEC09F /* DownloadProgressEventImpl.swift in Sources */,
+				B4E0AAE629D3CAC900FEC09F /* PallyConEventType.swift in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* RNPallyConDrmSdkBridge.m in Sources */,
+				B4E0AAE829D3CB2200FEC09F /* DownloadState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNPallyConDrmSdk;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNPallyConDrmSdk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNPallyConDrmSdk;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNPallyConDrmSdk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNPallyConDrmSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNPallyConDrmSdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}

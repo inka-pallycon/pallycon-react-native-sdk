@@ -1,0 +1,56 @@
+{
+  "name": "pallycon-react-native-sdk",
+  "version": "1.1.0",
+  "description": "pallyCon multi-drm react-native sdk",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "react-native": "src/index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inka-pallycon/pallycon-react-native-sdk.git"
+  },
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "*.podspec",
+    "!**/__tests__",
+    "!examples"
+  ],
+  "keywords": [
+    "react-native",
+    "multi-drm",
+    "drm",
+    "widevine",
+    "fairplay",
+    "fps",
+    "player",
+    "pallycon",
+    "pally-con",
+    "inka-entworks",
+    "inka"
+  ],
+  "author": "SungJu Yun <yuyu04@inka.co.kr> (https://pallycon.com)",
+  "license": "Apache-2.0",
+  "homepage": "https://pallycon.com",
+  "contributors": [
+    "SungJu Yun <yuyu04@inka.co.kr> (https://pallycon.com)",
+    "YoonHwan Park <yhpark@inka.co.kr> (https://pallycon.com)"
+  ],
+  "devDependencies": {
+    "@types/react-native": "^0.71.4",
+    "react": "16.9.0",
+    "react-native": "^0.61.5"
+  },
+  "dependencies": {
+    "@types/react-native-base64": "^0.2.0",
+    "react-native-base64": "^0.2.1",
+    "typescript": "^4.9.4"
+  },
+  "packageManager": "yarn@3.5.0"
+}
