@@ -5,7 +5,7 @@ A React-Native pallycon-react-native-sdk plugin which provides easy to apply Mul
 ## **support environment**
 
 - Android 5.0 (Lolipop) & Android targetSdkVersion 31 or higher
-- iOS 11.2 higher
+- iOS 12.0 higher
 - This SDK supports ExoPlayer version 2.18.1 on Android.
 
 ## **Important**
