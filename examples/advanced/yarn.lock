@@ -5680,9 +5680,9 @@
   "resolved" "https://registry.npmjs.org/p-try/-/p-try-2.2.0.tgz"
   "version" "2.2.0"
 
-"pallycon-react-native-sdk@file:../../package_v1.1.0_b37.tgz":
-  "integrity" "sha512-xWOST62LMby70C4T561bKxf4TbwXqATC4pLviGxaAy9iyj0MZ34rl2u0hGE4K3PXPfvLJYbRp83CZqpf/jZHaA=="
-  "resolved" "file:../../package_v1.1.0_b37.tgz"
+"pallycon-react-native-sdk@file:../../package_v1.1.0_b40.tgz":
+  "integrity" "sha512-zkQ0CVnuhAUwvhREWAo+rcnT4qn0r2jYWq8n89AN8TsQb6XeRcbvQUTGBVJMXbwOXDroP/zhKxIEOqzxyF2Lkg=="
+  "resolved" "file:../../package_v1.1.0_b40.tgz"
   "version" "1.1.0"
   dependencies:
     "@types/react-native-base64" "^0.2.0"

@@ -537,7 +537,8 @@ class PallyConSdk constructor(val context: Context) {
             url = config.contentUrl,
             localPath = "",
             drmConfig = drmConfig,
-            cookie = config.contentCookie
+            cookie = config.contentCookie,
+            httpHeaders = contentHeaders
         )
     }
 }

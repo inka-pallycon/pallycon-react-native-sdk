@@ -13,6 +13,7 @@ enum PallyConEventType {
     case networkConnectedError
     case detectedDeviceTimeModifiedError
     case migrationError
+    case licenseCipherError
     case unknownError
     case progress
 }
@@ -32,6 +33,7 @@ extension PallyConEventType {
         case .networkConnectedError: return "networkConnectedError"
         case .detectedDeviceTimeModifiedError: return "detectedDeviceTimeModifiedError"
         case .migrationError: return "migrationError"
+        case .licenseCipherError: return "licenseCipherError"
         case .unknownError: return "unknownError"
         case .progress: return "progress"
         }

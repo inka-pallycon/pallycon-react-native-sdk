@@ -14,7 +14,7 @@
   "dependencies": {
     "@react-navigation/native": "^6.1.5",
     "@react-navigation/native-stack": "^6.9.11",
-    "pallycon-react-native-sdk": "file:../../package_v1.1.0_b37.tgz",
+    "pallycon-react-native-sdk": "file:../../package_v1.1.0_b40.tgz",
     "react": "^18.2.0",
     "react-native": "0.71.2",
     "react-native-base64": "^0.2.1",

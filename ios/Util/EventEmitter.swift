@@ -35,6 +35,7 @@ class EventEmitter {
         PallyConEventType.networkConnectedError.name,
         PallyConEventType.detectedDeviceTimeModifiedError.name,
         PallyConEventType.migrationError.name,
+        PallyConEventType.licenseCipherError.name,
         PallyConEventType.unknownError.name,
         PallyConEventType.progress.name,
     ]
