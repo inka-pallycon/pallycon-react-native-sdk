@@ -16,7 +16,7 @@ export default function DrmMovieController() {
     const [downloadPercent, setDownloadPercent] = useState<[string, number][]>([]);
     const [error, setError] = useState<string>('');
     const [isSdkInit, setSdkInit] = useState<boolean>(false);
-    const siteId = 'XFQI';
+    const siteId = 'DEMO';
     const [listeners, setListeners] = useState<[]>([]);
 
     const UseCase = new GetDrmMovies(
