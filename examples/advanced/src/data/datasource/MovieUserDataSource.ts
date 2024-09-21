@@ -23,7 +23,7 @@ export default class MovieUserDataSourceImpl implements MovieUserDataSource {
                 token: item.token,
                 licenseUrl: item.licenseUrl,
                 licenseCipherTablePath : item.licenseCipherTablePath,
-                certificateUrl : item.certificateUrl,
+                certificateUrl: item.certificateUrl,
                 downloadState: '',
             }));
     }

@@ -53,8 +53,10 @@ struct DrmContent {
 
         let customData = self.customData ?? ""
         let drmLicenseUrl = self.drmLicenseUrl ?? ""
+        let certificateUrl = self.appleCertUrl ?? ""
 
-        let configString = "{\"drmConfig\":{\"siteId\":\"\(self.siteId)\",\"contentId\":\"\(self.contentId)\",\"drmLicenseUrl\":\"\(drmLicenseUrl)\",\"token\":\"\(self.token)\",\"customData\":\"\(customData)\"},\"url\":\"\(self.downloadPath)\"}"
+        let configString = "{\"drmConfig\":{\"siteId\":\"\(self.siteId)\",\"contentId\":\"\(self.contentId)\",\"certificateUrl\":\"\(certificateUrl)\",\"drmLicenseUrl\":\"\(drmLicenseUrl)\",\"token\":\"\(self.token)\",\"customData\":\"\(customData)\"},\"url\":\"\(self.downloadPath)\"}"
+
         return configString
     }
 }
@@ -116,7 +118,8 @@ class PallyConSdk: NSObject {
             let strToken = token ?? ""
             let strCustomData = customData ?? ""
             let strDrmLicenseUrl = drmLicenseUrl ?? ""
-            let configString = "{\"drmConfig\":{\"siteId\":\"\(self.siteId)\",\"contentId\":\"\(contentId)\",\"drmLicenseUrl\":\"\(strDrmLicenseUrl)\",\"token\":\"\(strToken)\",\"customData\":\"\(strCustomData)\"},\"url\":\"\(url)\"}"
+            let strDrmCertUrl = appleCertUrl ?? ""
+            let configString = "{\"drmConfig\":{\"siteId\":\"\(self.siteId)\",\"contentId\":\"\(contentId)\",\"certificateUrl\":\"\(strDrmCertUrl)\",\"drmLicenseUrl\":\"\(strDrmLicenseUrl)\",\"token\":\"\(strToken)\",\"customData\":\"\(strCustomData)\"},\"url\":\"\(url)\"}"
             return configString
         }
     }

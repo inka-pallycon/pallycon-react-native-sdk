@@ -7,5 +7,6 @@ export class DrmMovieModel implements DrmMovie {
     token = '';
     licenseUrl = 'https://license-global.pallycon.com/ri/licenseManager.do/';
     licenseCipherTablePath = '';
+    certificateUrl = '';
     downloadState = '';
 }

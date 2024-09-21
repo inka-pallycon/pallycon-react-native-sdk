@@ -10,12 +10,13 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => "11.2" }
   s.source = { :git => package["repository"]["url"], :tag => "v#{s.version}" }
   s.source_files = "ios/**/*.{h,m,swift}"
-  s.dependency 'PallyConFPSSDK'
-
   s.dependency "React-Core"
+  s.dependency 'PallyConFPSSDK', '>=2.3.0'
+  s.platforms    = { :ios => ">=14.0" }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64 x86_64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64 x86_64' }
 end
 
 

@@ -16,7 +16,7 @@ import {
 import {downloadState} from '../../domain/model/DownloadState';
 import Toast from 'react-native-toast-message';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useFocusEffect} from "@react-navigation/native";
+import {useFocusEffect} from "@react-navigation/core";
 
 LogBox.ignoreLogs(['Remote debugger']);
 

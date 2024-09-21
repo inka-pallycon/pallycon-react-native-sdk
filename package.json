@@ -43,14 +43,18 @@
     "YoonHwan Park <yhpark@inka.co.kr> (https://pallycon.com)"
   ],
   "devDependencies": {
-    "@types/react-native": "^0.71.4",
-    "react": "16.9.0",
-    "react-native": "^0.61.5"
+    "@types/react-native": ">=0.68.20",
+    "react": ">=18.2.0",
+    "react-native": ">=0.68.2"
   },
   "dependencies": {
-    "@types/react-native-base64": "^0.2.0",
-    "react-native-base64": "^0.2.1",
+    "@react-native-community/cli": ">=14.1.0",
+    "@react-native/babel-plugin-codegen": ">=0.75.2",
+    "@react-native/codegen": ">=0.75.2",
+    "@types/react": ">=18.2.6",
+    "@types/react-native-base64": ">=0.2.0",
+    "react-native-base64": ">=0.2.1",
     "typescript": "^4.9.4"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@4.4.1"
 }

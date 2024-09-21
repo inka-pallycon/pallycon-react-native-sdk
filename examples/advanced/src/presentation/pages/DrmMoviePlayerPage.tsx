@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {AppState, FlatList, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
-import Video from 'react-native-video';
+import Video, {VideoRef} from 'react-native-video';
+import base64 from "react-native-base64";
 
 export default function DrmMoviePlayerPage({route}: any) {
 
@@ -169,7 +170,7 @@ export default function DrmMoviePlayerPage({route}: any) {
         showRNVControls: true,
     };
 
-    let video: Video;
+    const videoRef = useRef<VideoRef>(null);
 
     const onLoad = (data: any) => {
         console.log('onLoad');
@@ -185,7 +186,7 @@ export default function DrmMoviePlayerPage({route}: any) {
 
     const onError = (err: any) => {
         console.log(JSON.stringify(err?.error.errorCode));
-    }
+    };
 
     const viewStyle = state.fullscreen ? styles.fullScreen : styles.halfScreen
 
@@ -193,13 +194,24 @@ export default function DrmMoviePlayerPage({route}: any) {
 
     }, []);
 
+    const decodedJson: string = base64.decode(route.params.json);
+    let parsedData;
+    try {
+        parsedData = JSON.parse(decodedJson);
+    } catch (error) {
+        console.error("Error parsing JSON:", error);
+        return null;
+    }
+
+    const videoUrl = parsedData.url;
     return (
         <TouchableOpacity style={viewStyle}>
             <Video
-                ref={(ref: Video) => {
-                    video = ref
+                ref={videoRef}
+                source={{
+                    uri: videoUrl,  // URL을 여기에 추가
+                    headers: { PallyConJson: route.params.json }
                 }}
-                source={{headers: {PallyConJson: route.params.json}}}
                 style={viewStyle}
                 rate={state.rate}
                 paused={state.paused}

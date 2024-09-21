@@ -39,7 +39,7 @@ android {
 `PallyCon Multi DRM SDK React Native` uses `PallyConFPSSDK`. `PallyConFPSSDK` is supposed to be downloaded as `cocoapods`.
 
 ### SDK requirements
-- Minimum supported version: 11.2
+- Minimum supported version: 14.0
 
 </details>
 

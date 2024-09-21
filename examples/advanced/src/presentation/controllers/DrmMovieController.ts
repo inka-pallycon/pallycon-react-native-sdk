@@ -17,7 +17,7 @@ export default function DrmMovieController() {
     const [error, setError] = useState<string>('');
     const [isSdkInit, setSdkInit] = useState<boolean>(false);
     const siteId = 'DEMO';
-    const [listeners, setListeners] = useState<[]>([]);
+    const [listeners, setListeners] = useState<ReturnType<typeof PallyConMultiDrmSdk.addPallyConEvent>[]>([]);
 
     const UseCase = new GetDrmMovies(
         new MovieRepositoryImpl(new MovieUserDataSourceImpl())
