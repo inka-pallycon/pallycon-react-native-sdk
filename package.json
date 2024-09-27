@@ -51,6 +51,7 @@
     "@react-native-community/cli": ">=14.1.0",
     "@react-native/babel-plugin-codegen": ">=0.75.2",
     "@react-native/codegen": ">=0.75.2",
+    "@react-native/metro-config": "^0.75.3",
     "@types/react": ">=18.2.6",
     "@types/react-native-base64": ">=0.2.0",
     "react-native-base64": ">=0.2.1",

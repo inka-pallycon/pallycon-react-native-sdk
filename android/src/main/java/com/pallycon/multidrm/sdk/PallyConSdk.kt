@@ -2,7 +2,7 @@ package com.pallycon.multidrm.sdk
 
 import PallyConContentConfiguration
 import android.content.Context
-import com.google.android.exoplayer2.C
+import androidx.media3.common.C
 import com.google.gson.Gson
 import com.pallycon.multidrm.db.DatabaseManager
 import com.pallycon.multidrm.event.DownloadProgressEvent
@@ -38,18 +38,18 @@ class PallyConSdk constructor(val context: Context) {
     private val contentDataList = mutableListOf<ContentData>()
 
     private val listener: PallyConEventListener = object : PallyConEventListener {
-        override fun onCompleted(currentUrl: String?) {
-            currentUrl?.let {
+        override fun onCompleted(contentData: ContentData) {
+            contentData.url?.let {
                 instance?.pallyConEvent?.sendPallyConEvent(
-                    currentUrl,
+                    it,
                     EventType.Completed,
                     "download completed"
                 )
             }
         }
 
-        override fun onFailed(currentUrl: String?, e: PallyConException?) {
-            currentUrl?.let { url ->
+        override fun onFailed(contentData: ContentData, e: PallyConException?) {
+            contentData.url?.let { url ->
                 when (e) {
                     is PallyConException.ContentDataException ->
                         instance?.pallyConEvent?.sendPallyConEvent(
@@ -103,8 +103,8 @@ class PallyConSdk constructor(val context: Context) {
             }
         }
 
-        override fun onFailed(currentUrl: String?, e: PallyConLicenseServerException?) {
-            currentUrl?.let { url ->
+        override fun onFailed(contentData: ContentData, e: PallyConLicenseServerException?) {
+            contentData.url?.let { url ->
                 e?.let {
                     instance?.pallyConEvent?.sendPallyConEvent(
                         url, EventType.LicenseServerError,
@@ -115,7 +115,7 @@ class PallyConSdk constructor(val context: Context) {
 
         }
 
-        override fun onPaused(currentUrl: String?) {
+        override fun onPaused(contentData: ContentData) {
             contentDataList.forEach { content ->
                 content.url?.let { url ->
                     instance?.pallyConEvent?.sendPallyConEvent(
@@ -127,14 +127,14 @@ class PallyConSdk constructor(val context: Context) {
             }
         }
 
-        override fun onProgress(currentUrl: String?, percent: Float, downloadedBytes: Long) {
-            currentUrl?.let { url ->
+        override fun onProgress(contentData: ContentData, percent: Float, downloadedBytes: Long) {
+            contentData.url?.let { url ->
                 instance?.progressEvent?.sendProgressEvent(url, percent, downloadedBytes)
             }
         }
 
-        override fun onRemoved(currentUrl: String?) {
-            currentUrl?.let { url ->
+        override fun onRemoved(contentData: ContentData) {
+            contentData.url?.let { url ->
                 instance?.pallyConEvent?.sendPallyConEvent(
                     url,
                     EventType.Removed,
@@ -143,12 +143,12 @@ class PallyConSdk constructor(val context: Context) {
             }
         }
 
-        override fun onRestarting(currentUrl: String?) {
+        override fun onRestarting(contentData: ContentData) {
             print("onRestarting")
         }
 
-        override fun onStopped(currentUrl: String?) {
-            currentUrl?.let { url ->
+        override fun onStopped(contentData: ContentData) {
+            contentData.url?.let { url ->
                 instance?.pallyConEvent?.sendPallyConEvent(url, EventType.Stop, "download stop")
             }
         }
@@ -156,9 +156,11 @@ class PallyConSdk constructor(val context: Context) {
 
     fun setPallyConEvent(pallyConEvent: PallyConEvent?) {
         this.pallyConEvent = pallyConEvent
-        if (wvSDKList.isNotEmpty()) {
-            wvSDKList.entries.first()?.value.setPallyConEventListener(listener)
-        }
+//        if (wvSDKList.isNotEmpty()) {
+//            wvSDKList.entries.first()?.value.setPallyConEventListener(listener)
+//        }
+        PallyConWvSDK.removePallyConEventListener(listener)
+        PallyConWvSDK.addPallyConEventListener(listener)
     }
 
     fun setDownloadProgressEvent(downloadProgressEvent: DownloadProgressEvent?) {
@@ -207,9 +209,8 @@ class PallyConSdk constructor(val context: Context) {
             }
         }
 
-        if (wvSDKList.isNotEmpty()) {
-            wvSDKList.entries.first()?.value.setPallyConEventListener(listener)
-        }
+        PallyConWvSDK.removePallyConEventListener(listener)
+        PallyConWvSDK.addPallyConEventListener(listener)
     }
 
     private fun saveDownloadedContent() {
@@ -498,8 +499,8 @@ class PallyConSdk constructor(val context: Context) {
                 config.contentId,
                 config.contentUrl,
                 null,
-                null,
-                config.contentCookie
+                config.contentCookie,
+                null
             )
         }
 
@@ -535,7 +536,6 @@ class PallyConSdk constructor(val context: Context) {
         return ContentData(
             contentId = config.contentId,
             url = config.contentUrl,
-            localPath = "",
             drmConfig = drmConfig,
             cookie = config.contentCookie,
             httpHeaders = contentHeaders
