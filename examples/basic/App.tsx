@@ -2,45 +2,70 @@ import React, {useEffect, useState} from 'react';
 import {
     Platform,
     StyleSheet,
-    View
+    View,
+    ActivityIndicator
 } from 'react-native';
 import {
     PallyConContentConfiguration
 } from 'pallycon-react-native-sdk';
 import PallyConDrmSdk from 'pallycon-react-native-sdk';
 import Video from 'react-native-video';
+import base64 from 'react-native-base64';
 
 const App = () => {
-    const [source, setSource] = useState(null);
+    const [decodedJson, setDecodedJson] = useState('');
+    const [videoUrl, setVideoUrl] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const getData = async () => {
-            // PallyCon sdk use
-            // Initialize PallyCon Sdk with ‘DEMO’ site ID
-            PallyConDrmSdk.initialize('DEMO');
+            try {
+                // PallyCon sdk use
+                // Initialize PallyCon Sdk with ‘DEMO’ site ID
+                PallyConDrmSdk.initialize('DEMO');
 
-            let config: PallyConContentConfiguration;
-            if (Platform.OS === 'android') {
-                // android
-                config = {
-                    contentUrl: 'https://contents.pallycon.com/DEV/sglee/multitracks/dash/stream.mpd',
-                    contentId: 'multitracks',
-                    token: 'eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJ0ZXN0VXNlciIsImRybV90eXBlIjoid2lkZXZpbmUiLCJzaXRlX2lkIjoiREVNTyIsImhhc2giOiJpSGlpQmM3U1QrWTR1T0h1VnVPQVNmNU1nTDVibDJMb1FuNzNHREtcLzltbz0iLCJjaWQiOiJtdWx0aXRyYWNrcyIsInBvbGljeSI6IjlXcUlXa2RocHhWR0s4UFNJWWNuSnNjdnVBOXN4Z3ViTHNkK2FqdVwvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmQWFxZFc1aFhnSk5nY1NTM2ZTN284TnNqd3N6ak11dnQrMFF6TGtaVlZObXgwa2VmT2Uyd0NzMlRJVGdkVTRCdk45YWJoZDByUWtNSXJtb0llb0pIcUllSGNSdlZmNlQxNFJtVEFERXBDWTQ2NHdxamNzWjA0Uk82Zm90Nm5yZjhXSGZ3QVNjek9kV1d6QStFRlRadDhRTWw5SFRueWVYK1g3YXp1Y2VmQjJBd2V0XC9hQm0rZXpmUERodFZuaUhsSiIsInRpbWVzdGFtcCI6IjIwMjItMDgtMDVUMDY6MDM6MjJaIn0='
-                };
-            } else {
-                // iOS
-                config = {
-                    contentUrl: 'https://contents.pallycon.com/DEV/sglee/multitracks/hls/master.m3u8',
-                    contentId: 'multitracks',
-                    token: 'eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJ0ZXN0VXNlciIsImRybV90eXBlIjoiZmFpcnBsYXkiLCJzaXRlX2lkIjoiREVNTyIsImhhc2giOiJqRFhUbHo1WCthVDFmWjQ5RTBBZHh3bEVtVVhkUGZcL3dsSURuVVlaVFdNUT0iLCJjaWQiOiJtdWx0aXRyYWNrcyIsInBvbGljeSI6IjlXcUlXa2RocHhWR0s4UFNJWWNuSnNjdnVBOXN4Z3ViTHNkK2FqdVwvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmQWFxZFc1aFhnSk5nY1NTM2ZTN284TnNqd3N6ak11dnQrMFF6TGtaVlZObXgwa2VmT2Uyd0NzMlRJVGdkVTRCdk45YWJoZDByUWtNSXJtb0llb0pIcUllSGNSdlZmNlQxNFJtVEFERXBDWTdQSGZQZlwvVkZZXC9WYlh1eFhcL1dUdFZhczRPVXBDRGQ1bTFzcFRYbThEXC9NSEZwaWJ5ZlpwRExGcEd4UCs2RHg5OEpJeG1OYXBaZFpGaVNNcHdpWllFMiIsInRpbWVzdGFtcCI6IjIwMjMtMDEtMDVUMDU6MDE6NDJaIn0='
-                };
+                let config: PallyConContentConfiguration;
+                if (Platform.OS === 'android') {
+                    // android
+                    config = {
+                        contentUrl: 'https://contents.pallycon.com/DEV/sglee/multitracks/dash/stream.mpd',
+                        contentId: 'multitracks',
+                        token: 'eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJ0ZXN0VXNlciIsImRybV90eXBlIjoid2lkZXZpbmUiLCJzaXRlX2lkIjoiREVNTyIsImhhc2giOiJpSGlpQmM3U1QrWTR1T0h1VnVPQVNmNU1nTDVibDJMb1FuNzNHREtcLzltbz0iLCJjaWQiOiJtdWx0aXRyYWNrcyIsInBvbGljeSI6IjlXcUlXa2RocHhWR0s4UFNJWWNuSnNjdnVBOXN4Z3ViTHNkK2FqdVwvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmQWFxZFc1aFhnSk5nY1NTM2ZTN284TnNqd3N6ak11dnQrMFF6TGtaVlZObXgwa2VmT2Uyd0NzMlRJVGdkVTRCdk45YWJoZDByUWtNSXJtb0llb0pIcUllSGNSdlZmNlQxNFJtVEFERXBDWTQ2NHdxamNzWjA0Uk82Zm90Nm5yZjhXSGZ3QVNjek9kV1d6QStFRlRadDhRTWw5SFRueWVYK1g3YXp1Y2VmQjJBd2V0XC9hQm0rZXpmUERodFZuaUhsSiIsInRpbWVzdGFtcCI6IjIwMjItMDgtMDVUMDY6MDM6MjJaIn0='
+                    };
+                } else {
+                    // iOS
+                    config = {
+                        contentUrl: 'https://contents.pallycon.com/DEV/sglee/multitracks/hls/master.m3u8',
+                        contentId: 'multitracks',
+                        token: 'eyJrZXlfcm90YXRpb24iOmZhbHNlLCJyZXNwb25zZV9mb3JtYXQiOiJvcmlnaW5hbCIsInVzZXJfaWQiOiJ0ZXN0VXNlciIsImRybV90eXBlIjoiZmFpcnBsYXkiLCJzaXRlX2lkIjoiREVNTyIsImhhc2giOiJqRFhUbHo1WCthVDFmWjQ5RTBBZHh3bEVtVVhkUGZcL3dsSURuVVlaVFdNUT0iLCJjaWQiOiJtdWx0aXRyYWNrcyIsInBvbGljeSI6IjlXcUlXa2RocHhWR0s4UFNJWWNuSnNjdnVBOXN4Z3ViTHNkK2FqdVwvYm9tUVpQYnFJK3hhZVlmUW9jY2t2dUVmQWFxZFc1aFhnSk5nY1NTM2ZTN284TnNqd3N6ak11dnQrMFF6TGtaVlZObXgwa2VmT2Uyd0NzMlRJVGdkVTRCdk45YWJoZDByUWtNSXJtb0llb0pIcUllSGNSdlZmNlQxNFJtVEFERXBDWTdQSGZQZlwvVkZZXC9WYlh1eFhcL1dUdFZhczRPVXBDRGQ1bTFzcFRYbThEXC9NSEZwaWJ5ZlpwRExGcEd4UCs2RHg5OEpJeG1OYXBaZFpGaVNNcHdpWllFMiIsInRpbWVzdGFtcCI6IjIwMjMtMDEtMDVUMDU6MDE6NDJaIn0='
+                    };
+                }
+                // Set the source object for the video player with the content configuration
+                const sourceObject = await PallyConDrmSdk.getObjectForContent(config);
+                const decodedJson: string = base64.decode(sourceObject);
+                let parsedData;
+                try {
+                    parsedData = JSON.parse(decodedJson);
+                } catch (error) {
+                    console.error("Error parsing JSON:", error);
+                    setIsLoading(false);
+                    return;
+                }
+
+                const videoUrl = parsedData.url;
+                
+                setVideoUrl(videoUrl);
+                setDecodedJson(decodedJson);
+            } catch (error) {
+                console.error('Error setting up video source:', error);
+            } finally {
+                setIsLoading(false);
             }
-            // Set the source object for the video player with the content configuration
-            setSource(await PallyConDrmSdk.getObjectForContent(config));
         };
 
         getData();
-    });
+    }, []);
+
 
     const onLoad = (data: any) => {
         console.log('onLoad');
@@ -60,10 +85,21 @@ const App = () => {
 
     const viewStyle = state.fullscreen ? styles.fullScreen : styles.halfScreen;
 
+    if (isLoading) {
+        return (
+            <View style={styles.container}>
+                <ActivityIndicator size="large" color="#0000ff" />
+            </View>
+        );
+    }
+
     return (
-        <View style={styles.container}>
+        <View style={styles.container}> 
             <Video
-                source={{headers: {PallyConJson: source}}}
+                source={{
+                    uri: videoUrl,
+                    headers: { PallyConJson: decodedJson }
+                }}
                 style={viewStyle}
                 rate={state.rate}
                 paused={state.paused}

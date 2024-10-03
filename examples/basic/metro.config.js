@@ -1,17 +1,18 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
+const path = require('path');
+const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
-module.exports = {
-    transformer: {
-        getTransformOptions: async () => ({
-            transform: {
-                experimentalImportSupport: false,
-                inlineRequires: true,
-            },
-        }),
-    },
+const projectRoot = __dirname;
+const workspaceRoot = path.resolve(__dirname, '../..');
+
+const config = {
+  projectRoot,
+  watchFolders: [workspaceRoot],
+  resolver: {
+    nodeModulesPaths: [
+      path.resolve(projectRoot, 'node_modules'),
+      path.resolve(workspaceRoot, 'node_modules'),
+    ],
+  },
 };
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
