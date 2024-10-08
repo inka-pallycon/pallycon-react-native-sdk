@@ -1,20 +1,40 @@
-## **PallyCon Multi-DRM SDK** for React-Native Development Guide
+# **PallyCon React Native SDK** Development Guide
 
 A React-Native pallycon-react-native-sdk plugin which provides easy to apply Multi-DRM(Android: Widevine, iOS: FairPlay) when developing media service apps for Android and iOS. Please refer to the links below for detailed information.
 
-## **support environment**
+## **Support Environment**
 
-- Android 5.0 (Lolipop) & Android targetSdkVersion 31 or higher
-- iOS 12.0 higher
-- This SDK supports ExoPlayer version 2.18.1 on Android.
+- Android 6.0 (API 23) & Android targetSdkVersion 34 or higher
+- iOS 14.0 higher
 
 ## **Important**
 
-- To develop using the SDK, you must first sign up for the PallyCon Admin Site and obtain a Site ID.
+- To develop using the SDK, you must first sign up for the [PallyCon Site](https://pallycon.com/) and obtain a `Site ID`.
 
 ## **SDK usage**
 
-To add PallyConMultiDrmSdk to your React-Native app, read the [Installation](https://yarnpkg.com/) instructions. Below are the Android and iOS properties required for PallyConMultiDrmSdk to work properly.
+To add `PallyCon Multi-DRM Sdk` to your React-Native app, read the [Installation](https://yarnpkg.com/) instructions. Below are the Android and iOS properties required for `PallyConMultiDrmSdk` to work properly.
+
+### PallyCon Multi-DRM SDK - Android, iOS
+
+The `pallycon-react-native-sdk` uses the [PallyCon Multi-DRM SDK](https://pallycon.com/sdk/). This `PallyCon Multi-DRM SDK` is used to acquire and manage licences. This SDK is applied to the forked [react-native-video](https://github.com/inka-pallycon/react-native-video.git) and downloaded when running `yarn install`.
+
+
+### React Native Video
+
+The example project in `pallycon-react-native-sdk` uses [react-native-video](https://github.com/TheWidlarzGroup/react-native-video) to play DRM content.
+
+The provided `react-native-video` is applied with `PallyCon Multi-DRM SDK`, and if you use `pallycon-react-native-sdk`, you need to configure it like below.
+
+```json
+dependencies: {
+	...
+	//examples/advanced/package.json or examples/basic/package.json
+	"react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
+	...
+}
+```
+
 
 <details>
 <summary>Android</summary>
@@ -25,7 +45,7 @@ Make sure you set `compileSdkVersion` in "android/app/build.gradle".
 
 ```
 android {
-  compileSdkVersion 31
+  compileSdkVersion 34
 
   ...
 }
@@ -36,10 +56,33 @@ android {
 <details>
 <summary>iOS</summary>
 
-`PallyCon Multi DRM SDK React Native` uses `PallyConFPSSDK`. `PallyConFPSSDK` is supposed to be downloaded as `cocoapods`.
+`pallycon-react-native-sdk` uses cocoapods to install `PallyCon Multi-DRM iOS SDK`.
+> For information on how to install and use cocoapods, please refer to the [cocoapods official website](https://cocoapods.org/).
 
-### SDK requirements
-- Minimum supported version: 14.0
+#### examples/advanced
+- DRM content streaming playback
+- DRM content download and offline playback
+
+#### examples/basic
+- DRM content streaming playback
+
+### How to Run PallyCon React Native SDK Example
+- Run the following command to execute the example.
+```shell
+// move to the pallycon-react-native-sdk folder
+% cd pallycon-react-native-sdk
+% yarn install
+
+// move to the example/advanced or example/basic folder
+% cd example/advanced
+% yarn install
+
+// move to ios folder
+% cd ios
+% pod install
+% open advanced.xcworkspace
+```
+
 
 </details>
 
