@@ -1,3 +1,13 @@
+
+## 1.1.2
+
+Features:
+
+- PallyConMultiDrmSDK has been updated to version 1.1.2
+  - react-native version update.
+  - PallyCon Multi-DRM iOS/Android SDK update.
+
+
 ## 1.1.1
 
 Features:
