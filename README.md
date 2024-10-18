@@ -113,7 +113,11 @@ android {
 // move to ios folder
 % cd ios
 % pod install
-% open advanced.xcworkspace
+% cd ..
+// run ios
+% npx react-native run-ios
+// xcode run
+% cd ios && open advanced.xcworkspace
 ```
 
 </details>
