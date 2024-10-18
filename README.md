@@ -105,6 +105,7 @@ android {
 // move to the pallycon-react-native-sdk folder
 % cd pallycon-react-native-sdk
 % yarn install
+% yarn pack -o pallycon-react-native-sdk.tgz
 
 // move to the example/advanced or example/basic folder
 % cd example/advanced
