@@ -194,17 +194,19 @@ export default function DrmMoviePlayerPage({ route }: any) {
 
   const onError = (err: any) => {
     console.log(JSON.stringify(err?.error.errorCode))
+    console.log(JSON.stringify(err?.error.localizedDescription));
+    console.log(JSON.stringify(err?.error.localizedFailureReason));
     // If the error code is 50000, it indicates that the license has expired.
     Toast.show({
       type: "error",
-      text1: "Error code",
-      text2: err?.error.errorCode,
+      text1: err?.error.errorCode,
+      text2: err?.error.localizedFailureReason,
     })
   }
 
   const viewStyle = state.fullscreen ? styles.fullScreen : styles.halfScreen
 
-  useEffect(() => {}, [])
+  useEffect(() => { }, [])
 
   const decodedJson: string = base64.decode(route.params.json)
   let parsedData
