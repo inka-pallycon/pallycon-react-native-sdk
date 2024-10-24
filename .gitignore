@@ -200,6 +200,7 @@ replay_pid*
 
 .expo
 __generated__
+lib/
 
 ### ReactNative.Xcode Stack ###
 ## User settings
