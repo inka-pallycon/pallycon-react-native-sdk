@@ -14,10 +14,21 @@
 
 ## **Dependencies**
 
-- To add `PallyCon Multi-DRM Sdk` to your React-Native app, read the [Installation][2] instructions.
-- Below are the Android and iOS properties required for `PallyCon Multi-DRM SDK` to work properly.
+- PallyCon React Native SDK uses `PallyCon Multi-DRM SDK` and `react-native-video`.
+  - To add `PallyCon Multi-DRM Sdk` to your React-Native app, read the [Installation][2] instructions.
+  - To add `react-native-video` to your React-Native app, read the [React Native Video](#react-native-video) instructions.
 
-### PallyCon Multi-DRM SDK - Android, iOS
+- `pallycon-react-native-sdk` and `react-native-video` must be added to `package.json`.
+  > The example already includes the information below.
+
+  ```json
+  "dependencies": {
+    "pallycon-react-native-sdk": "^1.1.2",
+    "react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
+  }
+  ``` 
+
+### Set PallyCon Multi-DRM SDK - Android, iOS
 
 - The `pallycon-react-native-sdk` uses the [PallyCon Multi-DRM SDK][3].
 - This `PallyCon Multi-DRM SDK` is used to acquire and manage licences. 
@@ -71,7 +82,7 @@
     ```
 
 
-### React Native Video
+### Set React Native Video
 
 - The example project in `pallycon-react-native-sdk` uses [react-native-video][6] to play DRM content.
 - `react-native-video` is a library that provides a video component for React Native.
@@ -97,16 +108,6 @@
   - basic example
     - DRM content streaming playback
 
-
-### **Dependencies**
-- Add the following to `package.json`.
-
-  ```json
-  "dependencies": {
-    "pallycon-react-native-sdk": "^1.1.2",
-    "react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
-  }
-  ``` 
 
 ### How to Run PallyCon React Native SDK Example
   - Run the following command to execute the example.
