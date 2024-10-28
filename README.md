@@ -46,11 +46,15 @@
           }
       }
       ```
-  > GitHub Authentication 
-  >    - The username should be your GitHub User ID.
-  >    - The password should be your GitHub Personal Access Token (PAT).
-  >    - For instructions on generating a Personal Access Token. 
-  >      - Github documentation: [Managing your Personal Access Tokens][4].
+
+  <details>
+  <summary>GitHub Authentication </summary>
+
+    - The username should be your GitHub User ID.
+    - The password should be your GitHub Personal Access Token (PAT).
+    - For instructions on generating a Personal Access Token. 
+      - Github documentation: [Managing your Personal Access Tokens][4].
+  </details>
 
 
 #### **iOS**
@@ -61,7 +65,7 @@
 
 - Add the following to `Podfile`.
 
-    ```podfile
+    ```pod
     # examples/advanced/ios/Podfile
     pod 'PallyConFPSSDK'
     ```
@@ -85,12 +89,24 @@
 
 
 ## **PallyCon React Native SDK Example**
+### **Overview**
 - `pallycon-react-native-sdk` provides two examples.
   - advanced example
     - DRM content streaming playback
     - DRM content download and offline playback
   - basic example
     - DRM content streaming playback
+
+
+### **Dependencies**
+- Add the following to `package.json`.
+
+  ```json
+  "dependencies": {
+    "pallycon-react-native-sdk": "^1.1.2",
+    "react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
+  }
+  ``` 
 
 ### How to Run PallyCon React Native SDK Example
   - Run the following command to execute the example.
@@ -138,7 +154,7 @@ This section describes the `PallyCon React Native SDK` API.
 - Initialize the `PallyCon React Native SDK`.
 
   ```typescript
-  // advanced/src/presentation/controllers/DrmMovieController.ts
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   PallyConMultiDrmSdk.initialize(siteId)
   ```
 
@@ -146,13 +162,13 @@ This section describes the `PallyCon React Native SDK` API.
 
 - Register events that occur inside the SDK.
   ```typescript
-  // advanced/src/presentation/controllers/DrmMovieController.ts
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   PallyConMultiDrmSdk.setPallyConEvents()
   ```
 
 - PallyCon Event Type
   ```typescript
-  // advanced/src/presentation/controllers/DrmMovieController.ts
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   export enum PallyConEventType {
       complete = 'complete',    /// The download completed
       pause = 'pause',          /// The download paused
@@ -180,6 +196,7 @@ This section describes the `PallyCon React Native SDK` API.
 - When downloading, register a listener to know the size of the currently downloaded data.
 
   ```typescript
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   PallyConMultiDrmSdk.addPallyConEvent(PallyConEventType.progress, (event) => {
     // event.url is url
     // event.percent is downloaded percent
@@ -188,6 +205,7 @@ This section describes the `PallyCon React Native SDK` API.
 - Get the current download status of the content.
 
   ```typescript
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   try {
     const state = await PallyConMultiDrmSdk.getDownloadState(config)
     switch (state) {
@@ -210,6 +228,7 @@ This section describes the `PallyCon React Native SDK` API.
 - Describes the API required for the content download process.
 
   ```typescript
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   // start download
   PallyConMultiDrmSdk.addStartDownload(PallyConContentConfiguration)
 
@@ -228,6 +247,7 @@ This section describes the `PallyCon React Native SDK` API.
 - Remove the downloaded license and content.
 
   ```typescript
+  // ex) advanced/src/presentation/controllers/DrmMovieController.ts
   // remove downloaded content
   PallyConMultiDrmSdk.removeDownload(PallyConContentConfiguration)
 
