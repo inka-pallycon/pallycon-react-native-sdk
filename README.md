@@ -78,7 +78,7 @@
   ```json
   dependencies: {
     ...
-    //examples/advanced/package.json or examples/basic/package.json
+    <!-- examples/advanced/package.json or examples/basic/package.json -->
     "react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
     ...
   }
