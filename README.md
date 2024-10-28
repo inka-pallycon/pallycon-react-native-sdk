@@ -76,7 +76,7 @@
 - The provided `react-native-video` is applied with `PallyCon Multi-DRM SDK`, and if you use `pallycon-react-native-sdk`, you need to configure it like below.
 
   ```json
-  dependencies: {
+  "dependencies": {
     ...
     <!-- examples/advanced/package.json or examples/basic/package.json -->
     "react-native-video": "git+https://github.com/inka-pallycon/react-native-video.git"
