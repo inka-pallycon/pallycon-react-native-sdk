@@ -1,6 +1,6 @@
 {
   "name": "pallycon-react-native-sdk",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "pallyCon multi-drm react-native sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -45,7 +45,7 @@
   "devDependencies": {
     "@types/react-native": "^0.68.20",
     "react": "^18.2.0",
-    "react-native": "^0.68.2"
+    "react-native": "^0.72.3"
   },
   "dependencies": {
     "@react-native-community/cli": "^14.1.0",
